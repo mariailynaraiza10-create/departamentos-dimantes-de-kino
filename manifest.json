@@ -1,7 +1,7 @@
 {
   "name": "Departamentos Diamantes de Kino",
   "short_name": "Diamantes de Kino",
-  "description": "Sistema de administración de Departamentos Diamantes de Kino",
+  "description": "Sistema de administración de Departamentos Diamantes de Kino", 
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
