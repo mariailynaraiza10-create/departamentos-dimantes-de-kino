@@ -1,0 +1,4643 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+
+
+    background-image: url("fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+
+/* ==========================================
+   BOTÓN DEL MENÚ ☰
+========================================== */
+
+.boton-menu {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+
+    width: 62px;
+    height: 62px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #111;
+    color: white;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.20);
+
+    transition: transform 0.2s ease;
+}
+
+.boton-menu:hover {
+    transform: scale(1.04);
+}
+
+
+/* ==========================================
+   MENÚ LATERAL
+========================================== */
+
+.menu-lateral {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 350px;
+    height: 100vh;
+
+    z-index: 2000;
+
+    overflow-y: auto;
+
+    transform: translateX(-100%);
+
+    transition:
+        transform 0.3s ease;
+
+    box-shadow:
+        5px 0 25px rgba(0, 0, 0, 0.20);
+}
+
+.menu-lateral.abierto {
+    transform: translateX(0);
+}
+
+
+/* ==========================================
+   ENCABEZADO DEL MENÚ
+========================================== */
+
+.menu-titulo {
+    text-align: center;
+
+    padding: 25px 15px 20px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    margin-bottom: 5px;
+}
+
+.logo-menu {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 25px;
+}
+
+.menu-titulo h2 {
+    font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    margin: 0;
+}
+
+
+/* ==========================================
+   BOTONES DEL MENÚ
+========================================== */
+
+.menu-opciones {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    padding: 20px 18px 35px;
+}
+
+.menu-opciones button {
+    width: 100%;
+
+    min-height: 58px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #222;
+
+    text-align: left;
+
+    padding: 14px 18px;
+
+    margin-bottom: 8px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.menu-opciones button:hover {
+    background: #f0f0f0;
+    transform: translateX(3px);
+}
+
+.menu-opciones button:active {
+    background: #e5e5e5;
+}
+
+
+/* ==========================================
+   FONDO OSCURO
+========================================== */
+
+.fondo-menu {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(0, 0, 0, 0.40);
+
+    z-index: 1500;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.fondo-menu.abierto {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* ==========================================
+   ENCABEZADO PANEL DE CONTROL
+========================================== */
+
+.encabezado {
+
+
+    padding:
+        25px 35px 25px 105px;
+
+    border-bottom:
+        1px solid #e5e5e5;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.encabezado h1 {
+    font-size: 28px;
+
+    font-weight: 600;
+    
+ border-bottom:
+        1px solid #e5e5e5;
+}
+
+.fecha-hora {
+    text-align: right;
+
+}
+
+#hora {
+    font-size: 25px;
+
+    font-weight: 600;
+}
+
+#fecha {
+    
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* ==========================================
+   CONTENIDO PRINCIPAL
+========================================== */
+
+main {
+    width: 92%;
+
+    max-width: 1400px;
+
+    margin: 30px auto 60px;
+}
+
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.resumen-seccion h2 {
+    font-size: 22px;
+
+    margin-bottom: 18px;
+}
+
+.resumen-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.tarjeta-resumen {
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    min-height: 125px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+
+    border:
+        1px solid #eeeeee;
+}
+
+.tarjeta-titulo {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+.tarjeta-numero {
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 4px;
+}
+
+.tarjeta-subtitulo {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   DEPARTAMENTOS
+========================================== */
+
+.departamentos-seccion {
+    margin-top: 40px;
+}
+
+.titulo-departamentos {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.titulo-departamentos h2 {
+    font-size: 22px;
+}
+
+.titulo-departamentos p {
+    color: #777;
+
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   GRID DEPARTAMENTOS
+========================================== */
+
+.departamentos-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* ==========================================
+   TARJETA DEPARTAMENTO
+========================================== */
+
+.departamento-card {
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.08);
+
+    border:
+        1px solid #eeeeee;
+}
+
+
+/* ==========================================
+   FOTO
+========================================== */
+
+.departamento-foto {
+    width: 100%;
+
+    height: 220px;
+
+    position: relative;
+
+    background: #e8e8e8;
+
+    overflow: hidden;
+}
+
+.departamento-foto img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.foto-vacia {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 50px;
+
+    color: #888;
+}
+
+
+/* ==========================================
+   BOTÓN FOTO
+========================================== */
+
+.btn-foto {
+    position: absolute;
+
+    right: 12px;
+    top: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================
+   INFORMACIÓN DEPARTAMENTO
+========================================== */
+
+.departamento-info {
+    padding: 18px;
+}
+
+.estado {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+.estado-libre {
+    background: #dcf8e3;
+
+    color: #167534;
+}
+
+.estado-ocupado {
+    background: #ffe0e0;
+
+    color: #a00000;
+}
+
+.estado-mantenimiento {
+    background: #fff0c7;
+
+    color: #875c00;
+}
+
+.departamento-nombre {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.departamento-precio {
+    color: #555;
+
+    margin-bottom: 15px;
+}
+
+
+/* ==========================================
+   BOTÓN RESERVAR
+========================================== */
+
+.btn-reservar {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.btn-reservar:hover {
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   OCUPACIÓN
+========================================== */
+
+.ocupacion-seccion {
+    margin-top: 45px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.ocupacion-seccion h2 {
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   GRÁFICA
+========================================== */
+
+.grafica {
+    display: flex;
+
+    height: 260px;
+}
+
+.eje-vertical {
+    width: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    text-align: right;
+
+    padding-right: 10px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.zona-grafica {
+    position: relative;
+
+    flex: 1;
+
+    border-left:
+        1px solid #bbb;
+
+    border-bottom:
+        1px solid #bbb;
+}
+
+.linea {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    border-top:
+        1px dashed #ddd;
+}
+
+.linea-4 {
+    top: 0;
+}
+
+.linea-3 {
+    top: 25%;
+}
+
+.linea-2 {
+    top: 50%;
+}
+
+.linea-1 {
+    top: 75%;
+}
+
+.linea-0 {
+    bottom: 0;
+}
+
+.barras {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+    top: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    align-items: end;
+
+    gap: 25px;
+
+    padding:
+        0 20px;
+}
+
+.barra {
+    width: 100%;
+
+    background: #222;
+
+    border-radius:
+        5px 5px 0 0;
+
+    min-height: 2px;
+}
+
+.eje-horizontal {
+    margin-left: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    text-align: center;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    color: #666;
+}
+
+
+/* ==========================================
+   PRÓXIMAS RESERVAS
+========================================== */
+
+.reservas-seccion {
+    margin-top: 35px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.titulo-reservas {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.titulo-reservas h2 {
+    font-size: 21px;
+}
+
+.btn-ver-todas {
+    border: none;
+
+    background: transparent;
+
+    color: #222;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.proximas-reservas {
+    padding: 20px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+.cargando {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 50px;
+
+    color: #777;
+}
+
+
+/* ==========================================
+   SECCIONES
+========================================== */
+
+.seccion-pagina {
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 30px auto 60px;
+}
+
+
+/* ==========================================
+   CALENDARIO
+========================================== */
+
+.encabezado-calendario {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.encabezado-calendario h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-calendario p {
+    color: #777;
+
+    font-size: 15px;
+}
+
+.btn-nueva-reserva {
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.btn-nueva-reserva:hover {
+    opacity: 0.85;
+}
+
+.calendario-panel {
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.calendario-controles {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.calendario-controles h2 {
+    min-width: 180px;
+
+    text-align: center;
+
+    font-size: 24px;
+}
+
+.btn-cambiar-mes {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.filtro-departamento {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 25px;
+}
+
+.filtro-departamento select {
+    padding: 12px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    background: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    min-width: 230px;
+}
+
+.calendario-dias {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+}
+
+.calendario-dias div {
+    text-align: center;
+
+    font-weight: 600;
+
+    color: #666;
+
+    padding: 10px;
+}
+
+.calendario-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 8px;
+}
+
+.dia-calendario {
+    min-height: 100px;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    background: #fafafa;
+
+    cursor: pointer;
+}
+
+.dia-calendario:hover {
+    background: #f0f0f0;
+}
+
+.numero-dia {
+    font-weight: 600;
+
+    font-size: 15px;
+}
+
+.dia-vacio {
+    background: transparent;
+
+    border: none;
+
+    cursor: default;
+}
+
+.dia-hoy {
+    border: 2px solid #111;
+}
+
+.dia-reservado {
+    background: #ffe0e0;
+
+    border-color: #ffb5b5;
+}
+
+.departamentos-calendario {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+}
+
+.departamentos-calendario div {
+    text-align: center;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   RESERVAS
+========================================== */
+
+.encabezado-reservas {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.encabezado-reservas h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-reservas p {
+    color: #777;
+
+    font-size: 15px;
+}
+
+.filtros-reservas {
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.buscador-reservas {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    padding: 0 12px;
+
+    background: white;
+}
+
+.buscador-reservas input {
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    padding: 12px 5px;
+
+    font-size: 15px;
+}
+
+.filtros-reservas select {
+    min-width: 190px;
+
+    padding: 12px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    background: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.lista-reservas {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.reserva-card {
+    position: relative;
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding:
+        20px 22px 18px 27px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+
+    border:
+        1px solid #eeeeee;
+
+    overflow: hidden;
+}
+
+.reserva-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 5px;
+
+    background: #f0a500;
+}
+
+.reserva-card.estado-confirmada::before {
+    background: #2980d9;
+}
+
+.reserva-card.estado-anticipo::before {
+    background: #f0a500;
+}
+
+.reserva-card.estado-cancelada::before {
+    background: #e53935;
+}
+
+.reserva-card.estado-completada::before {
+    background: #2eaf5d;
+}
+
+.reserva-superior {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 17px;
+}
+
+.reserva-cliente {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.reserva-referencia {
+    font-weight: 700;
+
+    font-size: 16px;
+}
+
+.reserva-nombre {
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.estado-etiqueta {
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.etiqueta-anticipo {
+    background: #fff3cd;
+
+    color: #b77900;
+}
+
+.etiqueta-pendiente {
+    background: #ffe1e1;
+
+    color: #c62828;
+}
+
+.etiqueta-confirmada {
+    background: #e0efff;
+
+    color: #1769aa;
+}
+
+.etiqueta-cancelada {
+    background: #ffe0e0;
+
+    color: #c62828;
+}
+
+.etiqueta-completada {
+    background: #ddf6e5;
+
+    color: #218646;
+}
+
+.reserva-acciones {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+.selector-estado {
+    padding: 8px 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: white;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.btn-accion-reserva {
+    width: 36px;
+    height: 36px;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-accion-reserva:hover {
+    background: #f5f5f5;
+}
+
+.reserva-datos {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 22px;
+
+    color: #555;
+
+    font-size: 14px;
+
+    margin-bottom: 13px;
+}
+
+.reserva-total {
+    font-weight: 700;
+
+    color: #222;
+
+    font-size: 16px;
+}
+
+.reserva-agente {
+    color: #666;
+
+    font-size: 13px;
+}
+
+.sin-reservas {
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+/* ==========================================
+   CLIENTES
+========================================== */
+
+.encabezado-clientes {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.encabezado-clientes h1 {
+    margin: 0 0 5px;
+
+    font-size: 28px;
+}
+
+.encabezado-clientes p {
+    margin: 0;
+
+    color: #777;
+}
+
+.btn-nuevo-cliente {
+    background: #111;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.btn-nuevo-cliente:hover {
+    opacity: 0.85;
+}
+
+.clientes-herramientas {
+    background: #ffffff;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.clientes-herramientas input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.clientes-herramientas input:focus {
+    border-color: #111;
+}
+
+
+/* ==========================================
+   LISTA DE CLIENTES
+========================================== */
+
+.lista-clientes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.cliente-card {
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.06);
+
+    border-left:
+        5px solid #ddd;
+}
+
+.cliente-avatar {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #f1f1f1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+.cliente-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.cliente-nombre {
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.cliente-telefono {
+    color: #666;
+
+    font-size: 14px;
+}
+
+.cliente-reservas {
+    font-size: 13px;
+
+    color: #777;
+
+    margin-top: 6px;
+}
+
+.cliente-frecuente {
+    display: inline-block;
+
+    margin-top: 7px;
+
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    background: #fff4d6;
+
+    color: #9a6b00;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.cliente-acciones {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.cliente-acciones button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #f3f3f3;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+.cliente-acciones button:hover {
+    background: #e5e5e5;
+}
+
+
+/* ==========================================
+   MODAL CLIENTE
+========================================== */
+
+.modal-cliente {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 4000;
+
+    padding: 20px;
+}
+
+.modal-cliente.abierto {
+    display: flex;
+}
+
+.modal-cliente-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.modal-cliente-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.modal-cliente-header h2 {
+    margin: 0;
+}
+
+.btn-cerrar-modal {
+    border: none;
+
+    background: transparent;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+#formCliente {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+#formCliente label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+#formCliente input,
+#formCliente select {
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+.btn-guardar-cliente {
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.btn-guardar-cliente:hover {
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+    .departamentos-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .lista-clientes {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 700px) {
+
+    .encabezado-reservas {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .filtros-reservas {
+        flex-direction: column;
+    }
+
+    .filtros-reservas select {
+        width: 100%;
+    }
+
+    .reserva-superior {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .reserva-acciones {
+        width: 100%;
+
+        justify-content: flex-end;
+
+        flex-wrap: wrap;
+    }
+
+    .reserva-datos {
+        gap: 10px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .encabezado-clientes {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .btn-nuevo-cliente {
+        width: 100%;
+    }
+
+    .lista-clientes {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .boton-menu {
+        width: 58px;
+        height: 58px;
+
+        font-size: 30px;
+    }
+
+    .menu-lateral {
+        width: 88vw;
+
+        max-width: 350px;
+    }
+
+    .encabezado {
+        padding:
+            20px 20px 20px 95px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .fecha-hora {
+        text-align: left;
+    }
+
+    .resumen-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .departamentos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .departamento-foto {
+        height: 240px;
+    }
+
+    .encabezado-calendario {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .btn-nueva-reserva {
+        width: 100%;
+    }
+
+    .calendario-panel {
+        padding: 15px;
+    }
+
+    .calendario-controles {
+        gap: 10px;
+    }
+
+    .calendario-controles h2 {
+        font-size: 20px;
+
+        min-width: 150px;
+    }
+
+    .dia-calendario {
+        min-height: 65px;
+
+        padding: 7px;
+    }
+
+    .departamentos-calendario {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .cliente-card {
+        padding: 15px;
+    }
+
+}
+/* ==========================================
+   PAGOS
+========================================== */
+
+.encabezado-pagos {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.encabezado-pagos h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-pagos p {
+    color: #777;
+
+    font-size: 15px;
+}
+
+.btn-registrar-pago {
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   LISTA PAGOS
+========================================== */
+
+.lista-pagos {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* ==========================================
+   TARJETA PAGO
+========================================== */
+
+.pago-card {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px 24px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+
+    border:
+        1px solid #eeeeee;
+}
+
+
+/* ==========================================
+   PRIMERA LÍNEA
+========================================== */
+
+.pago-linea-superior {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.pago-nombre {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.pago-verificado-texto {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #777;
+}
+
+.pago-verificado-texto.activo {
+    color: #218646;
+}
+
+
+/* ==========================================
+   SEGUNDA LÍNEA
+========================================== */
+
+.pago-linea-datos {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+.pago-monto {
+    margin-left: auto;
+
+    color: #222;
+
+    font-size: 18px;
+}
+
+.btn-verificar-pago,
+.btn-eliminar-pago {
+    width: 36px;
+
+    height: 36px;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+.btn-verificar-pago:hover,
+.btn-eliminar-pago:hover {
+    background: #f3f3f3;
+}
+
+
+/* ==========================================
+   TERCERA LÍNEA
+========================================== */
+
+.pago-verificado-por {
+    margin-top: 12px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   SIN PAGOS
+========================================== */
+
+.sin-pagos {
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+/* ==========================================
+   MODAL PAGO
+========================================== */
+
+.modal-pago {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 4000;
+
+    padding: 20px;
+}
+
+.modal-pago.abierto {
+    display: flex;
+}
+
+.modal-pago-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.modal-pago-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+#formPago {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+#formPago label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+#formPago input,
+#formPago select {
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+.btn-guardar-pago {
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   CELULAR PAGOS
+========================================== */
+
+@media (max-width: 700px) {
+
+    .encabezado-pagos {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .btn-registrar-pago {
+        width: 100%;
+    }
+
+    .pago-linea-datos {
+        gap: 10px;
+    }
+
+    .pago-monto {
+        margin-left: 0;
+    }
+
+}
+/* ==========================================
+   LIMPIEZA
+========================================== */
+
+.encabezado-limpieza {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.encabezado-limpieza h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-limpieza p {
+    color: #777;
+
+    font-size: 15px;
+}
+
+.btn-nueva-limpieza {
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.lista-limpieza {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* ==========================================
+   TARJETA DE LIMPIEZA
+========================================== */
+
+.limpieza-card {
+    position: relative;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 22px 24px 22px 30px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+
+    border:
+        1px solid #eeeeee;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   LÍNEA DE ESTADO
+========================================== */
+
+.limpieza-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 5px;
+
+    background: #f0a500;
+}
+
+.limpieza-card.estado-progreso::before {
+    background: #e0a800;
+}
+
+.limpieza-card.estado-completada::before {
+    background: #2eaf5d;
+}
+
+.limpieza-card.estado-incidencia::before {
+    background: #e53935;
+}
+
+
+/* ==========================================
+   CABECERA
+========================================== */
+
+.limpieza-superior {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 12px;
+}
+
+.limpieza-titulo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.limpieza-numero {
+    font-weight: 700;
+
+    font-size: 17px;
+}
+
+.limpieza-departamento {
+    font-size: 19px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   CONTROLES
+========================================== */
+
+.limpieza-controles {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.limpieza-estado {
+    padding: 9px 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.btn-guardar-limpieza {
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    padding: 9px 13px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   FECHA
+========================================== */
+
+.limpieza-fecha {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+/* ==========================================
+   CONTADOR
+========================================== */
+
+.limpieza-contador {
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+
+/* ==========================================
+   CHECKLIST
+========================================== */
+
+.limpieza-checklist {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.limpieza-check {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px;
+
+    background: #f8f8f8;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.limpieza-check input {
+    width: 17px;
+
+    height: 17px;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   RESPONSABLE
+========================================== */
+
+.limpieza-responsable {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+}
+
+.limpieza-responsable input {
+    padding: 9px 11px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+
+/* ==========================================
+   NOTAS
+========================================== */
+
+.limpieza-notas {
+    width: 100%;
+
+    min-height: 70px;
+
+    padding: 10px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    resize: vertical;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+
+/* ==========================================
+   PDF
+========================================== */
+
+.btn-pdf-limpieza {
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f1f1f1;
+
+    padding: 9px 13px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.btn-pdf-limpieza:hover {
+    background: #e5e5e5;
+}
+
+
+/* ==========================================
+   SIN TAREAS
+========================================== */
+
+.sin-limpieza {
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 700px) {
+
+    .encabezado-limpieza {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .btn-nueva-limpieza {
+        width: 100%;
+    }
+
+    .limpieza-superior {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .limpieza-controles {
+
+        width: 100%;
+    }
+
+    .limpieza-estado {
+
+        flex: 1;
+    }
+
+    .limpieza-checklist {
+
+        grid-template-columns: 1fr;
+    }
+
+    .limpieza-responsable {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+/* ==========================================
+   INVENTARIO
+========================================== */
+
+.encabezado-inventario {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.encabezado-inventario h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-inventario p {
+    color: #777;
+
+    font-size: 15px;
+}
+
+.btn-agregar-articulo {
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.btn-agregar-articulo:hover {
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   DEPARTAMENTOS INVENTARIO
+========================================== */
+
+.departamentos-inventario {
+    background: white;
+
+    padding: 12px;
+
+    border-radius: 15px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.depto-inventario {
+    border: none;
+
+    background: transparent;
+
+    padding: 12px 10px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+.depto-inventario:hover {
+    background: #f0f0f0;
+}
+
+.depto-inventario.activo {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ==========================================
+   LISTA INVENTARIO
+========================================== */
+
+.lista-inventario {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* ==========================================
+   TARJETA INVENTARIO
+========================================== */
+
+.inventario-card {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px 24px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+
+    border:
+        1px solid #eeeeee;
+}
+
+
+/* ==========================================
+   PARTE SUPERIOR
+========================================== */
+
+.inventario-superior {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+.inventario-nombre {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.inventario-etiqueta {
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* ESTADO */
+
+.inventario-estado-bueno {
+    background: #ddf6e5;
+
+    color: #218646;
+}
+
+.inventario-estado-faltante {
+    background: #fff3cd;
+
+    color: #9a6b00;
+}
+
+.inventario-estado-danado {
+    background: #ffe0e0;
+
+    color: #c62828;
+}
+
+
+/* CATEGORÍA */
+
+.inventario-categoria {
+    background: #f0f0f0;
+
+    color: #555;
+}
+
+
+/* ==========================================
+   ACCIONES
+========================================== */
+
+.inventario-acciones {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.btn-editar-inventario,
+.btn-eliminar-inventario {
+    width: 36px;
+
+    height: 36px;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.btn-editar-inventario:hover,
+.btn-eliminar-inventario:hover {
+    background: #f3f3f3;
+}
+
+
+/* ==========================================
+   CANTIDAD
+========================================== */
+
+.inventario-cantidad {
+    margin-top: 14px;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   NOTAS
+========================================== */
+
+.inventario-notas {
+    margin-top: 8px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal-inventario {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 4000;
+
+    padding: 20px;
+}
+
+.modal-inventario.abierto {
+    display: flex;
+}
+
+.modal-inventario-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.modal-inventario-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+#formInventario {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+#formInventario label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+#formInventario input,
+#formInventario select,
+#formInventario textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+#formInventario textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+#formInventario input[type="number"] {
+    appearance: auto;
+}
+
+.btn-actualizar-inventario {
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.btn-actualizar-inventario:hover {
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 800px) {
+
+    .departamentos-inventario {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .encabezado-inventario {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .btn-agregar-articulo {
+        width: 100%;
+    }
+
+    .departamentos-inventario {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .inventario-superior {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .inventario-acciones {
+        width: 100%;
+
+        margin-left: 0;
+
+        justify-content: flex-end;
+    }
+
+}
+/* ==========================================
+   DOCUMENTOS
+========================================== */
+
+.encabezado-documentos {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.encabezado-documentos h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-documentos p {
+    color: #777;
+}
+
+.btn-nuevo-documento {
+    background: #111;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.lista-documentos {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.documento-card {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px 24px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+
+    border:
+        1px solid #eeeeee;
+}
+
+.documento-superior {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.documento-titulo {
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.documento-acciones {
+    margin-left: auto;
+
+    display: flex;
+
+    gap: 7px;
+}
+
+.btn-documento {
+    width: 36px;
+
+    height: 36px;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.documento-info {
+    margin-top: 12px;
+
+    color: #555;
+
+    line-height: 1.7;
+}
+
+.sin-documentos {
+    background: white;
+
+    padding: 50px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+/* ==========================================
+   MODAL DOCUMENTO
+========================================== */
+
+.modal-documento {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 4000;
+
+    padding: 20px;
+}
+
+.modal-documento.abierto {
+    display: flex;
+}
+
+.modal-documento-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.modal-documento-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+#formDocumento {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+#formDocumento label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+#formDocumento input,
+#formDocumento select,
+#formDocumento textarea {
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#formDocumento textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+.btn-guardar-documento {
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   COMPROBANTE
+========================================== */
+
+.vista-comprobante {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    background: #f5f5f5;
+
+    overflow-y: auto;
+}
+
+.comprobante-contenedor {
+    width: 92%;
+
+    max-width: 900px;
+
+    margin: 30px auto 60px;
+}
+
+.comprobante-encabezado {
+    margin-bottom: 15px;
+}
+
+.btn-volver-comprobante {
+    border: none;
+
+    background: #111;
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+}
+
+.comprobante-contenido {
+    background: white;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 45px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 12px rgba(0,0,0,0.08);
+}
+
+.comprobante-logo {
+    width: 100px;
+
+    height: 100px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 10px;
+}
+
+.comprobante-titulo {
+    text-align: center;
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.comprobante-subtitulo {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.comprobante-estado {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 7px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+}
+
+.comprobante-datos {
+    display: grid;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.comprobante-total {
+    border-top:
+        1px solid #ddd;
+
+    padding-top: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 17px;
+}
+
+.comprobante-botones {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+.btn-comprobante {
+    border: none;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    .encabezado-documentos {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .btn-nuevo-documento {
+        width: 100%;
+    }
+
+    .documento-superior {
+        align-items: flex-start;
+    }
+
+    .documento-acciones {
+        flex-wrap: wrap;
+    }
+
+    .comprobante-contenido {
+        padding: 25px;
+    }
+
+}
+
+/* ==========================================
+   CONFIGURACIÓN
+========================================== */
+
+.encabezado-configuracion {
+    background: #ffffff;
+
+    padding: 25px 30px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.encabezado-configuracion h1 {
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.encabezado-configuracion p {
+    color: #777;
+}
+
+
+/* ==========================================
+   BLOQUES
+========================================== */
+
+.configuracion-bloque {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.configuracion-bloque h2 {
+    font-size: 21px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   PRECIOS
+========================================== */
+
+.precios-configuracion {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.precio-configuracion-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border:
+        1px solid #eeeeee;
+
+    border-radius: 10px;
+}
+
+.precio-configuracion-item label {
+    font-weight: 600;
+}
+
+.campo-precio {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+.campo-precio input {
+    width: 120px;
+
+    padding: 10px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+.campo-precio span {
+    color: #777;
+
+    font-size: 13px;
+}
+
+.btn-guardar-configuracion {
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo-configuracion {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+.logo-preview-configuracion {
+    width: 140px;
+
+    height: 140px;
+
+    border:
+        1px solid #eee;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fafafa;
+}
+
+.logo-preview-configuracion img {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+}
+
+.logo-configuracion-info {
+    flex: 1;
+}
+
+.logo-configuracion-info input {
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.logo-configuracion-info p {
+    margin-top: 10px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   REGLAS
+========================================== */
+
+.titulo-reglas-configuracion {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.btn-nueva-regla {
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    padding: 11px 15px;
+
+    cursor: pointer;
+}
+
+.lista-reglas-configuracion {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.regla-configuracion-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    border:
+        1px solid #eeeeee;
+
+    border-radius: 12px;
+}
+
+.regla-configuracion-info {
+    flex: 1;
+}
+
+.regla-configuracion-titulo {
+    font-weight: 700;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.regla-configuracion-descripcion {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+.regla-configuracion-acciones {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.btn-regla-accion {
+    width: 36px;
+
+    height: 36px;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   SWITCH
+========================================== */
+
+.switch {
+    position: relative;
+
+    display: inline-block;
+
+    width: 48px;
+
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+
+    width: 0;
+
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+
+    cursor: pointer;
+
+    inset: 0;
+
+    background: #ccc;
+
+    border-radius: 20px;
+
+    transition: .2s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    left: 3px;
+
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: .2s;
+}
+
+.switch input:checked + .slider {
+    background: #2eaf5d;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(22px);
+}
+
+.regla-form-estado {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+}
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal-configuracion {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 4000;
+
+    padding: 20px;
+}
+
+.modal-configuracion.abierto {
+    display: flex;
+}
+
+.modal-configuracion-contenido {
+    background: white;
+
+    width: 100%;
+
+    max-width: 450px;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.modal-configuracion-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+#formRegla {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+#formRegla label {
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+#formRegla input[type="text"],
+#formRegla textarea {
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+}
+
+#formRegla textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 800px) {
+
+    .precios-configuracion {
+        grid-template-columns: 1fr;
+    }
+
+    .logo-configuracion {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .titulo-reglas-configuracion {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .regla-configuracion-card {
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .precio-configuracion-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .campo-precio {
+        width: 100%;
+    }
+
+    .campo-precio input {
+        width: 100%;
+    }
+
+    .regla-configuracion-card {
+        flex-direction: column;
+    }
+
+}
+
+/* ==========================================
+   FORMULARIO DE RESERVA
+========================================== */
+
+.formulario-reserva-panel {
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 2px 12px rgba(0,0,0,0.06);
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.formulario-logo {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 12px;
+}
+
+.formulario-logo img {
+    width: 110px;
+    height: 110px;
+
+    object-fit: contain;
+}
+
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+.formulario-titulo {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.formulario-titulo h1 {
+    font-size: 28px;
+
+    margin-bottom: 6px;
+}
+
+.formulario-titulo p {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.formulario-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==========================================
+   CAMPOS
+========================================== */
+
+.campo-formulario {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.campo-formulario label {
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+    width: 100%;
+
+    padding: 13px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 9px;
+
+    background: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+    border-color: #111;
+}
+
+.campo-formulario input[type="number"] {
+    appearance: auto;
+}
+
+
+/* ==========================================
+   CAMPOS CALCULADOS
+========================================== */
+
+.campo-calculado {
+    min-height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 13px;
+
+    background: #f7f7f7;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 9px;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   CALENDARIO
+========================================== */
+
+.calendario-reserva {
+    border:
+        1px solid #eeeeee;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    margin-bottom: 30px;
+}
+
+.calendario-reserva-header {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.calendario-reserva-header h2 {
+    min-width: 190px;
+
+    text-align: center;
+
+    font-size: 21px;
+}
+
+.calendario-reserva-header button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.dias-semana-reserva {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 6px;
+
+    margin-bottom: 7px;
+}
+
+.dias-semana-reserva span {
+    text-align: center;
+
+    padding: 8px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.calendario-reserva-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 6px;
+}
+
+.dia-reserva {
+    min-height: 60px;
+
+    padding: 8px;
+
+    border:
+        1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    background: #fafafa;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.dia-reserva:hover {
+    background: #f0f0f0;
+}
+
+.dia-reserva.vacio {
+    border: none;
+
+    background: transparent;
+
+    cursor: default;
+}
+
+.dia-reserva.seleccionado {
+    background: #111;
+
+    color: white;
+
+    border-color: #111;
+}
+
+.dia-reserva.ocupado {
+    background: #ffe0e0;
+
+    border-color: #ffb5b5;
+
+    color: #a00000;
+
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   BLOQUES
+========================================== */
+
+.bloque-reserva {
+    border-top:
+        1px solid #eeeeee;
+
+    padding-top: 25px;
+
+    margin-top: 25px;
+
+    margin-bottom: 30px;
+}
+
+.bloque-reserva h2 {
+    font-size: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================
+   OTRO MÉTODO
+========================================== */
+
+.otro-metodo-reserva {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 8px;
+}
+
+.otro-metodo-reserva input {
+    flex: 1;
+
+    padding: 10px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 8px;
+}
+
+.otro-metodo-reserva button {
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    padding: 0 12px;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   REGLAS
+========================================== */
+
+.reglas-formulario-reserva {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.regla-formulario-item {
+    padding: 14px;
+
+    border-radius: 10px;
+
+    background: #f8f8f8;
+
+    border:
+        1px solid #eeeeee;
+}
+
+.regla-formulario-item strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 14px;
+}
+
+.regla-formulario-item p {
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* ==========================================
+   ACEPTAR REGLAS
+========================================== */
+
+.btn-aceptar-reglas {
+    width: 100%;
+
+    padding: 14px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 10px;
+
+    background: #f5f5f5;
+
+    color: #333;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn-aceptar-reglas.aceptado {
+    background: #111;
+
+    color: white;
+
+    border-color: #111;
+}
+
+
+/* ==========================================
+   ENVIAR
+========================================== */
+
+.btn-enviar-reserva {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-enviar-reserva:hover {
+    opacity: 0.88;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 700px) {
+
+    .formulario-reserva-panel {
+        padding: 20px;
+    }
+
+    .formulario-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calendario-reserva {
+        padding: 12px;
+    }
+
+    .dia-reserva {
+        min-height: 45px;
+
+        padding: 6px;
+
+        font-size: 12px;
+    }
+
+    .calendario-reserva-header {
+        gap: 8px;
+    }
+
+    .calendario-reserva-header h2 {
+        min-width: 150px;
+
+        font-size: 18px;
+    }
+
+}
+
+/* ==========================================
+   WHATSAPP
+========================================== */
+
+.whatsapp-panel {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,0.06);
+}
+
+.whatsapp-panel h1 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.whatsapp-panel > p {
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+.whatsapp-mensaje {
+    max-width: 700px;
+}
+
+.whatsapp-mensaje-titulo {
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+#mensajeCompartirWhatsApp {
+    width: 100%;
+
+    min-height: 110px;
+
+    padding: 14px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 9px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+
+    resize: vertical;
+}
+
+.whatsapp-enlace {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.whatsapp-enlace input {
+    flex: 1;
+
+    padding: 12px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    background: #f8f8f8;
+}
+
+.whatsapp-enlace button {
+    width: 48px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #eee;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.btn-compartir-whatsapp {
+    margin-top: 15px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+/* ======================================================
+   EDITOR DE FOTOS
+   ====================================================== */
+
+.modal-fotos {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-fotos-contenido {
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.modal-fotos-contenido h2 {
+    margin: 0 0 6px;
+}
+
+.modal-fotos-contenido h3 {
+    margin: 0 0 15px;
+}
+
+/* ======================================================
+   FOTOS
+   ====================================================== */
+
+.lista-fotos-departamento {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.foto-departamento-item {
+    width: 300px;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #d6d6d6;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    object-fit: cover;
+     object-position: center;
+}
+
+.foto-departamento-item img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    display: block;
+}
+
+.foto-departamento-item.seleccionada {
+    border: 3px solid #b08d57;
+    box-shadow: 0 0 0 2px rgba(176, 141, 87, 0.2);
+     object-position: center;
+}
+
+
+/* ======================================================
+   SUBIR ARCHIVO + URL
+   ====================================================== */
+
+.opciones-foto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-subir-foto,
+.btn-url-foto {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    background: #f5f5f5;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.btn-subir-foto:hover,
+.btn-url-foto:hover {
+    background: #eaeaea;
+}
+
+/* ======================================================
+   CUADRO URL
+   ====================================================== */
+
+.input-url-foto {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+/* ======================================================
+   BOTONES FINALES
+   ====================================================== */
+
+.acciones-fotos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.acciones-fotos button {
+    min-height: 42px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-eliminar-foto {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btn-cancelar-foto {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btn-guardar-foto {
+    background: #198754;
+    color: #fff;
+}
